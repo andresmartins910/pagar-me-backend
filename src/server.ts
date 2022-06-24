@@ -7,7 +7,7 @@ AppDataSource.initialize()
   .then(() => {
     app.listen(PORT, () => {
       console.log(
-        `Pagar.me Backend Challenge\n\nServer running on port ${PORT}.`
+        `Pagar.me Back-end Challenge\n\nServer running on port ${PORT}.`
       );
     });
   })

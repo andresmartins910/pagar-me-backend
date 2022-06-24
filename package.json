@@ -22,6 +22,6 @@
   },
   "scripts": {
     "dev": "ts-node-dev --files --rs src/server.ts",
-    "typeorm": "typeorm-ts-node-commonjs" 
+    "typeorm": "typeorm-ts-node-commonjs"
   }
 }

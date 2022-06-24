@@ -31,6 +31,6 @@ export class Address {
   country: string;
 
   @OneToOne(() => Customer, (customer) => customer.address)
-  @JoinColumn()
+  @JoinColumn({ name: "customer_id" })
   customer: Customer;
 }

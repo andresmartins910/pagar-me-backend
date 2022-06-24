@@ -4,6 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import fs from "fs";
 import path from "path";
+import routes from "./routes";
 import customErrorHandler from "./middlewares/customErrorHandler.middleware";
 
 export const app = express();
@@ -18,7 +19,6 @@ const accessLogStream = fs.createWriteStream(
 
 app.use(morgan("combined", { stream: accessLogStream }));
 
-// routes \/
+routes(app);
 
-// error middleware
 app.use(customErrorHandler);
