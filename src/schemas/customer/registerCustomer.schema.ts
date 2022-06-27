@@ -14,7 +14,6 @@ const registerCustomer = yup.object().shape({
     .string()
     .required()
     .test("is-cpf", "CPF is not valid", (cpf) => validateCPF(cpf)),
-  type: yup.string().required(),
   phones: yup
     .array()
     .of(
@@ -61,7 +60,6 @@ const serializedRegisterCustomer = yup.object().shape({
   name: yup.string().required(),
   email: yup.string().email().required(),
   document: yup.string().required(),
-  type: yup.string().required(),
   phones: yup.array().required(),
   birthday: yup.string().required(),
   funds: yup.number().required(),

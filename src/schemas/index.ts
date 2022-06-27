@@ -5,4 +5,15 @@ import {
 
 import { serializedGetCustomer } from "./customer/getCustomer.schema";
 
-export { registerCustomer, serializedRegisterCustomer, serializedGetCustomer };
+import {
+  updateCustomer,
+  serializedUpdateCustomer,
+} from "./customer/updateCustomer.schema";
+
+export {
+  registerCustomer,
+  serializedRegisterCustomer,
+  serializedGetCustomer,
+  updateCustomer,
+  serializedUpdateCustomer,
+};
