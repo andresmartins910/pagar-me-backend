@@ -8,7 +8,7 @@ import customerController from "../controllers/customer.controller";
 import { verifyEmailAndDocument, verifyIdExists } from "../middlewares";
 
 // schemas
-import { registerCustomer } from "../schemas";
+import { registerCustomer, updateCustomer } from "../schemas";
 
 export const customer = Router();
 
@@ -23,5 +23,10 @@ customer
 customer
   .route("/:id")
   .get(verifyIdExists, customerController.getCustomer)
-  .patch(customerController.updateCustomer)
-  .delete(customerController.deleteCustomer);
+  .patch(
+    verifyIdExists,
+    // validateSchema(updateCustomer),
+    verifyEmailAndDocument,
+    customerController.updateCustomer
+  )
+  .delete(verifyIdExists, customerController.deleteCustomer);
