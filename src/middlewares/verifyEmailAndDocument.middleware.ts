@@ -8,23 +8,27 @@ export const verifyEmailAndDocument = async (
   _: Response,
   next: NextFunction
 ) => {
-  const { body } = req;
+  const { email, document } = req.body;
 
   const customerRepository = AppDataSource.getRepository(Customer);
 
-  const emailIsAlreadyRegistered = await customerRepository.findOneBy({
-    email: body.email,
-  });
+  if (email) {
+    const emailIsAlreadyRegistered = await customerRepository.findOneBy({
+      email: email,
+    });
 
-  if (emailIsAlreadyRegistered)
-    throw new CustomError(409, "Email already registered.");
+    if (emailIsAlreadyRegistered)
+      throw new CustomError(409, "Email already registered.");
+  }
 
-  const documentIsAlreadyRegistered = await customerRepository.findOneBy({
-    document: body.document,
-  });
+  if (document) {
+    const documentIsAlreadyRegistered = await customerRepository.findOneBy({
+      document: document,
+    });
 
-  if (documentIsAlreadyRegistered)
-    throw new CustomError(409, "Document already registered.");
+    if (documentIsAlreadyRegistered)
+      throw new CustomError(409, "Document already registered.");
+  }
 
   next();
 };
