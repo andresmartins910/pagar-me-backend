@@ -5,7 +5,7 @@ import morgan from "morgan";
 import fs from "fs";
 import path from "path";
 import routes from "./routes";
-import customErrorHandler from "./middlewares/customErrorHandler.middleware";
+import { customErrorHandler } from "./middlewares";
 
 export const app = express();
 

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CustomError } from "../errors/customError";
 
-const customErrorHandler = (
+export const customErrorHandler = (
   err: Error,
   _: Request,
   res: Response,
@@ -18,5 +18,3 @@ const customErrorHandler = (
     error: err.message,
   });
 };
-
-export default customErrorHandler;

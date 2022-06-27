@@ -8,11 +8,15 @@ class CustomerController {
     return res.status(200).json(newCustomer);
   };
 
+  public getCustomer = async (req: Request, res: Response) => {
+    const customer = await customerService.getCustomer(req);
+
+    return res.status(200).json(customer);
+  };
+
   public updateCustomer = async () => {};
 
   public deleteCustomer = async () => {};
-
-  public getCustomer = async () => {};
 }
 
 export default new CustomerController();
