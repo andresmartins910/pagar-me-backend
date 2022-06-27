@@ -5,7 +5,6 @@ const serializedGetCustomer = yup.object().shape({
   name: yup.string().required(),
   email: yup.string().email().required(),
   document: yup.string().required(),
-  type: yup.string().required(),
   phones: yup.array().required(),
   birthday: yup.string().required(),
   funds: yup.number().required(),
