@@ -14,9 +14,21 @@ class CustomerController {
     return res.status(200).json(customer);
   };
 
-  public updateCustomer = async () => {};
+  public updateCustomer = async (req: Request, res: Response) => {
+    const updatedCustomer = await customerService.updateCustomer(req);
 
-  public deleteCustomer = async () => {};
+    return res.status(200).json(updatedCustomer);
+  };
+
+  public deleteCustomer = async (req: Request, res: Response) => {
+    const { statusCode, successMessage } = await customerService.deleteCustomer(
+      req
+    );
+
+    return res.status(statusCode).json({
+      message: successMessage,
+    });
+  };
 }
 
 export default new CustomerController();
