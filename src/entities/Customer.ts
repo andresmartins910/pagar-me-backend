@@ -30,9 +30,6 @@ export class Customer {
   @Column({ unique: true })
   document: string;
 
-  @Column({ type: "enum", enum: DocumentType })
-  type: DocumentType;
-
   @Column("simple-array")
   phones: string[];
 
@@ -44,7 +41,6 @@ export class Customer {
 
   @OneToOne(() => Address, (address) => address.customer, {
     eager: true,
-    nullable: false,
   })
   address: Address;
 
